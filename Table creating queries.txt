@@ -1,0 +1,174 @@
+create table Bank(
+bank_id number(5), 
+bank_name varchar2(20),
+bank_address varchar2(20)
+)
+alter table Bank modify bank_address varchar2(50)
+
+create table Employee(
+e_id number(5),
+hiredate date,
+e_type varchar2(20),
+e_name varchar2(20),
+bank_id number(5),
+app_no number(5),
+s_num number(5)
+)
+
+
+create table App(
+app_no number(5),
+app_name varchar2(20)
+)
+
+create table CustomerInfo(
+c_id number(5),
+c_name varchar2(20),
+c_address varchar2(80),
+app_no number(5)
+)
+
+
+create table Customer_phone_number(
+c_id number(5),
+phone_number varchar2(20)
+)
+
+create table Loan(
+loan_no number(5),
+loan_amount decimal(35,2),
+loan_date date,
+app_no number(5),
+c_id number(5)
+)
+
+
+create table Account(
+a_no number(5),
+a_type varchar2(20),
+a_balance decimal(35,2),
+c_id number(5)
+)
+
+
+create table Transaction_records(
+t_no number(5),
+t_date date,
+t_amount decimal(35,2),
+a_no number(5),
+app_no number(5)
+)
+
+
+create table Salary(
+s_num number(5),
+e_sal decimal(35,2),
+s_date date,
+app_no number(5)
+)
+
+
+Alter table Bank add constraint ppk1 primary key(bank_id)
+Alter table Employee add constraint ppk2 primary key(e_id)
+Alter table App add constraint ppk3 primary key(app_no)
+//Alter table Customer add constraint ppk4 primary key(c_id)
+Alter table Customer_phone_number add constraint ppk5 primary key(c_id,phone_number)
+Alter table Loan add constraint ppk6 primary key(loan_no)
+Alter table Account add constraint ppk7 primary key(a_no)
+Alter table Transaction_records add constraint ppk8 primary key(t_no)
+Alter table Salary add constraint ppk9 primary key(s_num)
+Alter table CustomerInfo add constraint ppk10 primary key(c_id)
+
+Alter table Employee add constraint E_bank foreign key(bank_id) references Bank(bank_id)
+Alter table Employee add constraint E_app foreign key(app_no) references App(app_no)
+Alter table Employee add constraint E_sal foreign key(s_num) references Salary(s_num)
+Alter table Customer add constraint C_app foreign key(app_no) references App(app_no)
+Alter table Loan add constraint L_app foreign key(app_no) references App(app_no)
+//Alter table Loan add constraint L_cus foreign key(c_id) references Customer(c_id)
+//Alter table Account add constraint A_cus foreign key(c_id) references Customer(c_id)
+Alter table Transaction_records add constraint T_acc foreign key(a_no) references Account(a_no)
+Alter table Transaction_records add constraint T_app foreign key(app_no) references App(app_no)
+Alter table Salary add constraint S_app foreign key(app_no) references App(app_no)
+Alter table Account add constraint A_customer foreign key(c_id) references CustomerInfo(c_id)
+Alter table Loan add constraint L_cus foreign key(c_id) references Customer(c_id)
+
+
+Alter table Account modify(a_no not null)
+Alter table Customer_phone_number add constraint addingUnique unique(phone_number)
+Alter table Loan add constraint checkingAmount check(loan_amount>1000)
+Alter table Transaction_records modify t_amount default 0
+Alter table Account modify(a_balance not null)
+
+create sequence Bank_sq
+start with 10
+increment by 10
+maxvalue 300
+nocycle
+nocache
+
+create sequence Employee_sq
+start with 10
+increment by 10
+maxvalue 300
+nocycle
+nocache
+
+create sequence App_sq
+start with 10
+increment by 10
+maxvalue 300
+nocycle
+nocache
+
+create sequence Customer_sq
+start with 10
+increment by 10
+maxvalue 300
+nocycle
+nocache
+
+create sequence Customer_phone_number_sq
+start with 10
+increment by 10
+maxvalue 300
+nocycle
+nocache
+
+create sequence Loan_sq
+start with 10
+increment by 10
+maxvalue 300
+nocycle
+nocache
+
+create sequence Account_sq
+start with 10
+increment by 10
+maxvalue 300
+nocycle
+nocache
+
+create sequence Transaction_records_sq
+start with 10
+increment by 10
+maxvalue 300
+nocycle
+nocache
+
+create sequence Salary_sq
+start with 10
+increment by 10
+maxvalue 300
+nocycle
+nocache
+
+
+Serially insertion:
+1. Bank
+insert into Bank(bank_id, bank_name,bank_address) values(Bank_sq.nextval,'Cyber Bank LTD','45/c, Motijheel, Dhaka')
+
+2. App
+insert into App(app_no,app_name) values(App_sq.nextval,'Cyber Online')
+
+3. Customer
+insert into Customer(c_id,c_name,c_address) values(Customer_sq.nextval,'Jhon','42, Khilgaon, Dhaka')

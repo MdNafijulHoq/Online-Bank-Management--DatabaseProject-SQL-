@@ -1,0 +1,57 @@
+Serially insertion:
+1. Bank ( bank_id, bank_name,bank_address)
+//insert into Bank(bank_id, bank_name,bank_address) values(Bank_sq.nextval,'Cyber Bank LTD','45/c, Motijheel, Dhaka')
+insert into Bank(bank_id, bank_name,bank_address) values(Bank_sq.nextval,'Cyber Bank LTD',' Mithapukur, Rangpur')
+insert into Bank(bank_id, bank_name,bank_address) values(Bank_sq.nextval,'Cyber Bank LTD',' Nikunja-2,Khilkhet Dhaka')
+insert into Bank(bank_id, bank_name,bank_address) values(Bank_sq.nextval,'Cyber Bank LTD',' Bagherhaat, Khulna')
+
+2. App (app_no,app_name)
+//insert into App(app_no,app_name) values(App_sq.nextval,'Cyber Online')
+insert into App(app_no,app_name) values(App_sq.nextval,'Cyber Online')
+insert into App(app_no,app_name) values(App_sq.nextval,'Cyber Online')
+insert into App(app_no,app_name) values(App_sq.nextval,'Cyber Online')
+
+3. Customer_phone_number (c_id,phone number)
+insert into Customer_phone_number(c_id,phone_number) values(Customer_phone_number_sq.nextval,01797682334)
+insert into Customer_phone_number(c_id,phone_number) values(Customer_phone_number_sq.nextval,01831231287)
+insert into Customer_phone_number(c_id,phone_number) values(Customer_phone_number_sq.nextval,01776670525)
+insert into Customer_phone_number(c_id,phone_number) values(Customer_phone_number_sq.nextval,01931121335)
+(another number of a customer)
+
+4. CustomerInfo (c_id,c_name,c_address,app_no)
+//insert into CustomerInfo(c_id,c_name,c_address,app_no) values(Customer_sq.nextval,'Jhon','42, Khilgaon, Dhaka',10)
+insert into CustomerInfo(c_id,c_name,c_address,app_no) values(Customer_sq.nextval,'wick','01, Mithapukur, Rangpur',20)
+insert into CustomerInfo(c_id,c_name,c_address,app_no) values(Customer_sq.nextval,'Jack','17, Nikunja-2, Dhaka',30)
+insert into CustomerInfo(c_id,c_name,c_address,app_no) values(Customer_sq.nextval,'Henry','15, Bagherhaat, Khulna',40)
+
+5. Account (a_no,a_type,a_bal,c_id)
+insert into Account(a_no,a_type,a_balance,c_id) values(Account_sq.nextval,'Checking Account',60000,10)
+insert into Account(a_no,a_type,a_balance,c_id) values(Account_sq.nextval,'Saving Account',800000,20)
+insert into Account(a_no,a_type,a_balance,c_id) values(Account_sq.nextval,'Deposit Account',1020000,30)
+insert into Account(a_no,a_type,a_balance,c_id) values(Account_sq.nextval,'Deposit Account',1050000,40)
+
+6. Salary ( s_num,e_sal,s_Date&time,app_no)
+insert into Salary(s_num,e_sal,s_date,app_no) values(Salary_sq.nextval,24600,to_date('03-11-2020','dd-mm-yyyy'),10)
+insert into Salary(s_num,e_sal,s_date,app_no) values(Salary_sq.nextval,24600,to_date('02-10-2020','dd-mm-yyyy'),20)
+insert into Salary(s_num,e_sal,s_date,app_no) values(Salary_sq.nextval,28950,to_date('02-10-2020','dd-mm-yyyy'),30)
+insert into Salary(s_num,e_sal,s_date,app_no) values(Salary_sq.nextval,30950,to_date('03-11-2020','dd-mm-yyyy'),40)
+
+7. Loan (  loan_no,loan_amount,loan_date & time,app_no, c_id)
+insert into Loan(loan_no,loan_amount,loan_date,app_no,c_id) values(Loan_sq.nextval,20000,to_date('17-12-1999','dd-mm-yyyy'),10,10)
+insert into Loan(loan_no,loan_amount,loan_date,app_no,c_id) values(Loan_sq.nextval,220000,to_date('01-06-2011','dd-mm-yyyy'),20,20)
+insert into Loan(loan_no,loan_amount,loan_date,app_no,c_id) values(Loan_sq.nextval,220000,to_date('02-08-2018','dd-mm-yyyy'),30,30)
+insert into Loan(loan_no,loan_amount,loan_date,app_no,c_id) values(Loan_sq.nextval,15000,to_date('02-08-2018','dd-mm-yyyy'),40,40)
+
+
+8. Transaction_records (  t _no,t_date&time ,t_amont,a_no, ,app_no)
+insert into Transaction_records(t_no,t_date,t_amount,a_no,app_no) values(Transaction_records_sq.nextval,to_date('13-11-2020','dd-mm-yyyy'),4000,10,10)
+insert into Transaction_records(t_no,t_date,t_amount,a_no,app_no) values(Transaction_records_sq.nextval,to_date('13-11-2020','dd-mm-yyyy'),2000,20,20)
+insert into Transaction_records(t_no,t_date,t_amount,a_no,app_no) values(Transaction_records_sq.nextval,to_date('01-12-2020','dd-mm-yyyy'),4500,30,30)
+insert into Transaction_records(t_no,t_date,t_amount,a_no,app_no) values(Transaction_records_sq.nextval,to_date('05-12-2020','dd-mm-yyyy'),5500,40,40)
+
+
+9. Employee (e_id,hiredate,e_type,e_name ,bank_id, app_no, s_num)
+insert into Employee(e_id,hiredate,e_type,e_name,bank_id,app_no,s_num) values(Employee_sq.nextval,to_date('08-07-2004','dd-mm-yyyy'),'Manager','AK Khandoker',10,10,10)
+insert into Employee(e_id,hiredate,e_type,e_name,bank_id,app_no,s_num) values(Employee_sq.nextval,to_date('20-03-2010','dd-mm-yyyy'),'Manager','Kashem Mia',20,20,20)
+insert into Employee(e_id,hiredate,e_type,e_name,bank_id,app_no,s_num) values(Employee_sq.nextval,to_date('29-10-1996','dd-mm-yyyy'),'Deputy Director','Kashem Mia',30,30,30)
+insert into Employee(e_id,hiredate,e_type,e_name,bank_id,app_no,s_num) values(Employee_sq.nextval,to_date('30-10-1996','dd-mm-yyyy'),'Executive Director','Mobassir Ahmed',40,40,40)
